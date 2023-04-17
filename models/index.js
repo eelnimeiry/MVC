@@ -12,11 +12,11 @@ Discussion.belongsTo(User, {
 });
 
 Discussion.hasMany(Comment, {
-  foreignKey: 'user_id',
+  foreignKey: 'discussion_id',
   onDelete: 'CASCADE'
 });
-Discussion.belongsTo(Project, {
-  foreignKey: 'user_id'
+User.hasMany(Comment, {
+  foreignKey: 'discussion_id'
 });
 
-module.exports = { User, Discussion };
+module.exports = { User, Discussion , Comment};

@@ -15,7 +15,7 @@ Comment.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    discussion:{
+    discussion_id:{
         type:DataTypes.INTEGER,
         ref:{
             model:'discussion',
