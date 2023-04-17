@@ -6,38 +6,35 @@
 
 <div class="row mt-4">
   <div class="col-md-6">
-    <h3>Create a New Project:</h3>
+    <h3>Create new blog</h3>
 
-    <form class="form new-project-form">
+    <form class="form new-blog-post">
       <div class="form-group">
-        <label for="project-name">project name:</label>
-        <input class="form-input" type="text" id="project-name" name="project-name" />
+        <label for="project-name">Blog Title</label>
+        <input class="form-input" type="text" id="blogtitle" name="blog title" />
       </div>
       <div class="form-group">
-        <label for="project-funding">needed funding ($):</label>
-        <input class="form-input" type="number" id="project-funding" name="project-funding" />
+        <label for="project-funding">blog discription</label>
+        <textarea rows=10 cols=70 id="description" name="description"></textarea>
       </div>
-      <div class="form-group">
-        <label for="project-desc">description:</label>
-        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
-      </div>
+     
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
       </div>
     </form>
   </div>
 
-  {{#if projects.length}}
+  {{#if Discussions.length}}
   <div class="col-md-6 project-list">
-    <h3>Current Projects:</h3>
+    <h3>blog post:</h3>
 
-    {{#each projects as |project|}}
+    {{#each Discussions as |Discussion|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
+        <h4><a href="/Discussion/{{Discussion.id}}">{{Discussion.BlogTitle}}</a></h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+        <button class="btn btn-sm btn-danger" data-id="{{Discussion.id}}">DELETE</button>
       </div>
     </div>
     {{/each}}

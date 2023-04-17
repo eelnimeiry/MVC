@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-      projects, 
+     blogs,
       logged_in: req.session.logged_in 
     });
   } catch (err) {
@@ -59,7 +59,7 @@ router.get('/profile', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-
+     console.log (user,"profile")
     res.render('profile', {
       ...user,
       logged_in: true

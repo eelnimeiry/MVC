@@ -1,18 +1,20 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#discussion-name').value.trim();
-  const needed_funding = document.querySelector('#discussion-funding').value.trim();
-  const description = document.querySelector('#discussion-desc').value.trim();
 
-  if (name && needed_funding && description) {
+  const BlogTitle = document.querySelector('#blogtitle').value.trim();
+  const description = document.querySelector('#description').value.trim();
+
+  console.log(BlogTitle, description)
+  if ( BlogTitle && description) {
     const response = await fetch(`/api/discussion`, {
       method: 'POST',
-      body: JSON.stringify({ name, needed_funding, description }),
+      body: JSON.stringify({  BlogTitle, description }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
+    console.log(response)
 
     if (response.ok) {
       document.location.replace('/profile');
@@ -39,9 +41,9 @@ const delButtonHandler = async (event) => {
 };
 
 document
-  .querySelector('.new-discussion-form')
+  .querySelector('.new-blog-post')
   .addEventListener('submit', newFormHandler);
 
-document
-  .querySelector('.discussion-list')
-  .addEventListener('click', delButtonHandler);
+// document
+//   .querySelector('.discussion-list')
+//   .addEventListener('click', delButtonHandler);
