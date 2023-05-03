@@ -19,10 +19,11 @@ router.get('/', async (req, res) => {
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-     blogs,
+     projects,
       logged_in: req.session.logged_in 
     });
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
@@ -40,7 +41,7 @@ router.get('/discussion/:id', async (req, res) => {
 
     const discussion = discussionData.get({ plain: true });
 
-    res.render('discussion', {
+    res.render('project', {
       ...discussion,
       logged_in: req.session.logged_in
     });
